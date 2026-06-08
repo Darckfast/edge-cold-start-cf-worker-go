@@ -54,7 +54,7 @@ export default class extends WorkerEntrypoint {
 
     async fetch(request: Request): Response | Promise<Response> {
         let response = await cf.fetch(request, this.env, this.ctx) as Response;
-        response.headers.set('x-datacenter', request.cf?.colo)
+        response.headers.set('x-datacenter', request.cf?.colo || 'Unknown')
 
         return response
     }
