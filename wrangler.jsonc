@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "worker-go-wasm",
+	"name": "edge-cold-start-cf-worker-go",
 	"main": "main.ts",
 	"compatibility_date": "2026-06-08",
 	"observability": {
