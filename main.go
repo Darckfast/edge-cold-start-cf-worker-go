@@ -3,19 +3,21 @@
 package main
 
 import (
-	"encoding/json"
+	"main/types"
 	"net/http"
 	"time"
 
 	"codeberg.org/darckfast/workers-go/platform/cloudflare/fetch"
+	"github.com/julienschmidt/httprouter"
+	"github.com/mailru/easyjson"
 )
 
 func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("POST /", func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(map[string]int64{
-			"time": time.Now().UnixMilli(),
-		})
+	mux := httprouter.New()
+	mux.HandlerFunc("POST", "/", func(w http.ResponseWriter, r *http.Request) {
+		easyjson.MarshalToWriter(types.Payload{
+			Time: time.Now().UnixMilli(),
+		}, w)
 	})
 
 	fetch.ServeNonBlock(mux)

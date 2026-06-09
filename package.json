@@ -3,7 +3,6 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "build": "GOOS=js GOARCH=wasm go build -trimpath -ldflags='-s -w -buildid=' -o app.wasm main.go && cp $(go env GOROOT)/lib/wasm/wasm_exec.js wasm_exec.js",
         "deploy": "wrangler deploy",
         "dev": "wrangler dev",
         "start": "wrangler dev",
