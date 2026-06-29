@@ -7,7 +7,7 @@
         "enabled": false
     },
     "build": {
-        "command": "go install codeberg.org/darckfast/workers-go/cmd/workers-go && workers-go -i . -tiny"
+        "command": "go install codeberg.org/darckfast/workers-go/cmd/workers-go@latest && workers-go -i . -tiny"
     },
     "upload_source_maps": true,
     "compatibility_flags": [
