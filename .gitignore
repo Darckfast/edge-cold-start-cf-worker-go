@@ -1,6 +1,7 @@
 # Logs
 wasm_exec.js
 *.wasm
+bin
 logs
 _.log
 npm-debug.log_
